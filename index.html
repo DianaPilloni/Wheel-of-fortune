@@ -745,7 +745,7 @@ button, input[type="checkbox"], label[for] { cursor: pointer; }
     <canvas id="wheel-canvas"></canvas>
     <!-- Freccia SVG puntatore a destra, con punta verso la ruota -->
     <svg class="wheel-pointer" width="42" height="42" viewBox="0 0 42 42" fill="none">
-      <polygon points="4,21 38,5 38,37" fill="rgba(21, 107, 171)" stroke="rgba(0,0,0,0.35)" stroke-width="1.5"/>
+      <polygon points="4,21 38,5 38,37" fill="rgba(228, 237, 244)" stroke="rgba(0,0,0,0.35)" stroke-width="1.5"/>
       <defs>
         <linearGradient id="gold-grad" x1="1" y1="0" x2="0" y2="0">
           <stop offset="0%" stop-color="#FFD166"/>
@@ -986,9 +986,9 @@ function drawWheel(highlightIndex = -1) {
   // Cerchio centrale
   ctx.beginPath();
   ctx.arc(cx, cy, 28, 0, Math.PI * 2);
-  ctx.fillStyle = '#FFFFFF';
+  ctx.fillStyle = '#e4edf4';
   ctx.fill();
-  ctx.strokeStyle = 'rgba(21, 107, 171)';
+  ctx.strokeStyle = 'rgba(228, 237, 244)';
   ctx.lineWidth = 3;
   ctx.stroke();
 
