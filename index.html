@@ -7,17 +7,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
-   VARIABILI COLORI — Sostituire con i colori ufficiali IF
+   VARIABILI COLORI
    ============================================================ */
 :root {
-  --if-primary:    #156bab;   /* Blu notte — colore principale */
-  --if-secondary:  #0c3a5e;   /* Blu scuro — sfondi profondi  */
-  --if-accent:     #9d4d9b;   /* Rosso/corallo — accento vivo */
-  --if-gold:       #F5A623;   /* Oro — highlight e celebrazioni */
-  --if-light:      #000000;   /* Grigio chiaro — testi su chiaro */
+  --if-primary:    #156bab;   
+  --if-secondary:  #0c3a5e;   
+  --if-accent:     #9d4d9b;   
+  --if-gold:       #F5A623;   
+  --if-light:      #000000;   
   --if-white:      #FFFFFF;
-  --if-background: #FFFFFF;   /* Sfondo globale */
-  --if-text:       #000000;   /* Testo principale */
+  --if-background: #FFFFFF;   
+  --if-text:       #000000;   
   --if-card:       rgba(255,255,255,0.06);
   --if-border:     rgba(27, 2, 2, 0.345);
   --radius:        16px;
@@ -566,7 +566,7 @@ body::before {
   .admin-actions button { width: 100%; }
 }
 
-/* Prevenzione zoom su doppio tap — importante per tablet in fiera */
+/* Prevenzione zoom su doppio tap  */
 * { touch-action: manipulation; }
 
 /* Cursore pointer su tutti gli elementi cliccabili */
@@ -773,10 +773,6 @@ button, input[type="checkbox"], label[for] { cursor: pointer; }
 
 <!-- ============================================================
      PULSANTE ADMIN (trigger discreto)
-     ============================================================
-     NOTA PER PRODUZIONE: Proteggere questa sezione con
-     autenticazione (es. password, PIN, login admin) prima
-     di deploiare in un ambiente pubblico.
      ============================================================ -->
 <button class="admin-btn-trigger" id="btn-admin-trigger">Admin</button>
 
@@ -926,8 +922,7 @@ function drawWheel(highlightIndex = -1) {
   }
 
   const sliceAngle = (2 * Math.PI) / avail.length;
-  // L'angolo 0 è a ore 3 (destra), la freccia punta a destra.
-  // Offset iniziale = angolo corrente in radianti
+
   const startOffset = (currentAngle * Math.PI) / 180;
 
   avail.forEach((prize, i) => {
@@ -1023,14 +1018,9 @@ function spin() {
   // Calcola quanti spicchi ci sono e l'angolo di ogni spicchio
   const sliceAngle  = 360 / avail.length;
 
-  // La freccia è a destra (angolo 0°).
-  // Lo spicchio i occupa [i * sliceAngle, (i+1) * sliceAngle] rispetto all'offset.
-  // Vogliamo che il centro dello spicchio vincente sia a 0° (freccia).
-  // Centro dello spicchio: winnerIdx * sliceAngle + sliceAngle / 2
-  // Quindi dobbiamo ruotare di: -(winnerIdx * sliceAngle + sliceAngle / 2) mod 360
+
 
   const targetOffsetInSlice = winnerIdx * sliceAngle + sliceAngle / 2;
-  // Aggiunge giri completi per effetto spettacolare (5-8 giri)
   const extraSpins = (5 + Math.floor(Math.random() * 4)) * 360;
   const finalAngle = extraSpins + (360 - targetOffsetInSlice % 360);
 
